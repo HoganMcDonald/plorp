@@ -1,24 +1,21 @@
-# README
+# plorp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+a budgetting app named by Matthew Loewen. sorry.
 
-Things you may want to cover:
+## setup
 
-- Ruby version
+```bash
+rake db:create db:migrate
 
-- System dependencies
+rake tailwind:build
 
-- Configuration
+rails s
+```
 
-- Database creation
+## code formatting
 
-- Database initialization
+plorp uses rubocop and prettier for code formatting.
 
-- How to run the test suite
-
-- Services (job queues, cache servers, search engines, etc.)
-
-- Deployment instructions
-
-- ...
+```bash
+rubocop -a
+```
