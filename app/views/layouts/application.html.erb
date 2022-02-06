@@ -12,8 +12,12 @@
   </head>
 
   <body class="bg-slate-900 text-slate-400">
-    <p class="bg-yellow-500 bg-opacity-50 text-yellow-100 p-2"><%= notice %></p>
-    <p class="bg-red-600 bg-opacity-40 text-red-100 p-2"><%= alert %></p>
+    <% if notice %>
+      <p class="bg-yellow-500 bg-opacity-50 text-yellow-100 p-2"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="bg-red-600 bg-opacity-40 text-red-100 p-2"><%= alert %></p>
+    <% end %>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
