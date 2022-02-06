@@ -34,14 +34,10 @@ Style/HashTransformValues:
 AllCops:
   Exclude:
     - 'bin/**/*'
-    - 'config/**/*'
-    - 'db/**/*'
     - 'log/**/*'
     - 'node_modules/**/*'
     - 'public/**/*'
-    - 'spec/factories/**/*'
     - 'storage/**/*'
-    - 'test/**/*'
     - 'tmp/**/*'
     - 'vendor/**/*'
 
@@ -158,23 +154,23 @@ Style/SpecialGlobalVars:
   StyleGuide: https://relaxed.ruby.style/#stylespecialglobalvars
 
 Style/StringLiterals:
-  Enabled: false
+  Enabled: true
   StyleGuide: https://relaxed.ruby.style/#stylestringliterals
 
 Style/TrailingCommaInArguments:
-  Enabled: false
+  Enabled: true
   StyleGuide: https://relaxed.ruby.style/#styletrailingcommainarguments
 
 Style/TrailingCommaInArrayLiteral:
-  Enabled: false
+  Enabled: true
   StyleGuide: https://relaxed.ruby.style/#styletrailingcommainarrayliteral
 
 Style/TrailingCommaInHashLiteral:
-  Enabled: false
+  Enabled: true
   StyleGuide: https://relaxed.ruby.style/#styletrailingcommainhashliteral
 
 Style/SymbolArray:
-  Enabled: false
+  Enabled: true
   StyleGuide: http://relaxed.ruby.style/#stylesymbolarray
 
 Style/WhileUntilModifier:
