@@ -7,9 +7,10 @@ a budgetting app named by Matthew Loewen. sorry.
 ```bash
 rake db:create db:migrate
 
-rake tailwind:build
+rake tailwindcss:build
 
 rails s
+rake tailwindcss:watch
 ```
 
 ## code formatting
