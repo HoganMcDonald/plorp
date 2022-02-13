@@ -32,4 +32,12 @@ class PlaidClient
 
     link_token_response.link_token
   end
+
+  def create_access_token(public_token)
+    request = Plaid::ItemPublicTokenExchangeRequest.new
+    request.public_token = public_token
+
+    response = @client.item_public_token_exchange(request)
+    response.access_token
+  end
 end

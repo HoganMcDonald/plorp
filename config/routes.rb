@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :plaid, only: [] do
       post 'link_token', on: :collection
+      post 'access_token', on: :collection
     end
   end
 end
