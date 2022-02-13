@@ -16,4 +16,5 @@ export const post = async (url, params) => {
   })
 
   const body = await response.json()
+  return body
 }
