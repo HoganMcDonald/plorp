@@ -3,7 +3,7 @@ class PlaidClient
   COUNTRY_CODES = ['US'].freeze
   LANGUAGE = 'en'.freeze
 
-  def initialize
+  def initialize(access_token: nil)
     configuration = Plaid::Configuration.new
     configuration.server_index = Plaid::Configuration::Environment[Plorp::PLAID_ENV]
     configuration.api_key['PLAID-CLIENT-ID'] = Plorp::PLAID_CLIENT_ID
@@ -14,6 +14,7 @@ class PlaidClient
     )
 
     @client = Plaid::PlaidApi.new(api_client)
+    @access_token = access_token
   end
 
   def create_link_token(user)
@@ -39,5 +40,17 @@ class PlaidClient
 
     response = @client.item_public_token_exchange(request)
     response.access_token
+  end
+
+  def item
+    request = Plaid::ItemGetRequest.new({ access_token: @access_token })
+    response = @client.item_get(request)
+    response.item
+  end
+
+  def accounts
+    request = Plaid::AccountsGetRequest.new({ access_token: @access_token })
+    response = @client.accounts_get(request)
+    response.accounts
   end
 end
