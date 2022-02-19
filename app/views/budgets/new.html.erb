@@ -1,7 +1,4 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New budget</h1>
-
+<div class="w-full max-w-sm m-auto flex flex-col items-center">
+  <h2 class="text-xl text-white font-bold mb-8">New budget</h2>
   <%= render "form", budget: @budget %>
-
-  <%= link_to 'Back to budgets', budgets_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>

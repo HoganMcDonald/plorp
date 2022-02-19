@@ -1,10 +1,6 @@
 class BudgetsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_budget, only: %i[ show edit update destroy ]
-
-  # GET /budgets or /budgets.json
-  def index
-    @budgets = Budget.all
-  end
 
   # GET /budgets/1 or /budgets/1.json
   def show; end
@@ -58,11 +54,11 @@ class BudgetsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_budget
-      @budget = Budget.find(params[:id])
+      @budget = current_user.budgets.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def budget_params
-      params.fetch(:budget, {})
+      params.require(:budget).permit(:name).merge(users: [current_user])
     end
 end

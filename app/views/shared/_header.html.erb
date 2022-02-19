@@ -9,13 +9,15 @@
 
     <div class="flex justify-between items-center">
       <% if current_user %>
-        <button
-          data-controller="plaid-button"
-          data-action="plaid-button#handleClick"
-          class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded tracking-wider disabled:opacity-70 disabled:cursor-not-allowed"
-        >
-          plaid
-        </button>
+        <% if @budget.persisted? %>
+          <button
+            data-controller="plaid-button"
+            data-action="plaid-button#handleClick"
+            class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded tracking-wider disabled:opacity-70 disabled:cursor-not-allowed"
+          >
+            plaid
+          </button>
+        <% end %>
       <% else %>
         <%= link_to 'sign in', user_session_path, class: '' %>
       <% end %>
