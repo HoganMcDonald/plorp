@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_19_215200) do
+ActiveRecord::Schema.define(version: 2022_02_19_224127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2022_02_19_215200) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "budget_id", null: false
+    t.index ["budget_id"], name: "index_authorizations_on_budget_id"
   end
 
   create_table "budgets", force: :cascade do |t|
@@ -61,4 +63,5 @@ ActiveRecord::Schema.define(version: 2022_02_19_215200) do
   end
 
   add_foreign_key "accounts", "authorizations"
+  add_foreign_key "authorizations", "budgets"
 end
