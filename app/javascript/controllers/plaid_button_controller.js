@@ -8,10 +8,10 @@ export default class extends Controller {
 
   handleClick() {
     this.element.disabled = true
-    this.createLinkToken()
+    this.createLinkToken(this.element.dataset.budgetId)
   }
 
-  async createLinkToken() {
+  async createLinkToken(budget_id) {
     try {
       const { link_token } = await post('/api/plaid/link_token', {})
       Plaid.create({
@@ -26,7 +26,7 @@ export default class extends Controller {
           // user selected and the account ID or IDs, if the
           // Account Select view is enabled.
           post('/api/plaid/access_token', {
-            budget_id: this.element.dataset.budgetId,
+            budget_id,
             public_token,
             metadata,
           })

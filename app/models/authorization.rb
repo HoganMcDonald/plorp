@@ -7,9 +7,19 @@
 #  name         :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  budget_id    :bigint           not null
+#
+# Indexes
+#
+#  index_authorizations_on_budget_id  (budget_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (budget_id => budgets.id)
 #
 class Authorization < ApplicationRecord
-  has_many :accounts
+  belongs_to :budget
+  has_many :accounts, dependent: :destroy
 
   def plaid_accounts
     plaid_client.accounts

@@ -1,5 +1,5 @@
 class CreateAuthorization < SmartInit::Base
-  initialize_with :access_token
+  initialize_with :access_token, :budget
   is_callable
 
   def call
@@ -12,7 +12,7 @@ class CreateAuthorization < SmartInit::Base
   private
 
   def create_authorization!
-    @authorization = Authorization.create! access_token: @access_token
+    @authorization = Authorization.create! access_token: @access_token, budget: @budget
   end
 
   def create_accounts!
