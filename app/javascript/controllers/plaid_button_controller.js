@@ -35,6 +35,7 @@ export default class extends Controller {
           // metadata contains information about the institution
           // that the user selected and the most recent API request IDs.
           // Storing this information can be helpful for support.
+          console.log(metadata)
         },
         onEvent: function (eventName, metadata) {
           // Optionally capture Link flow events, streamed through
@@ -47,6 +48,7 @@ export default class extends Controller {
           //   timestamp:       "2017-09-14T14:42:19.350Z",
           //   view_name:       "MFA",
           // }
+          console.lot(eventName, metadata)
         },
       }).open()
       this.element.disabled = false
