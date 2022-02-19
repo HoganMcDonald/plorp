@@ -248,6 +248,7 @@ GEM
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
+    smart_init (5.0.1)
     solargraph (0.44.3)
       backport (~> 1.2)
       benchmark
@@ -323,6 +324,7 @@ DEPENDENCIES
   rails (~> 7.0.1)
   redis (~> 4.0)
   selenium-webdriver
+  smart_init
   solargraph
   sprockets-rails
   stimulus-rails

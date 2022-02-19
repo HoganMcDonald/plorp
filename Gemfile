@@ -54,6 +54,7 @@ gem 'bootsnap', require: false
 # custom gems
 gem 'devise'
 gem 'plaid'
+gem 'smart_init'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

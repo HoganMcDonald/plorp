@@ -6,7 +6,8 @@ class Api::PlaidController < ApplicationController
   end
 
   def access_token
-    @access_token = plaid_client.create_access_token(access_token_params[:public_token])
+    access_token = plaid_client.create_access_token(access_token_params[:public_token])
+    CreateAuthorization.call(access_token: access_token)
   end
 
   private
