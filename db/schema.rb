@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2022_02_19_183529) do
   create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.string "plaid_id"
-    t.integer "account_type"
+    t.string "account_type"
     t.integer "account_sub_type"
     t.decimal "balance"
     t.decimal "limit"

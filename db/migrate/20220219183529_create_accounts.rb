@@ -3,7 +3,7 @@ class CreateAccounts < ActiveRecord::Migration[7.0]
     create_table :accounts do |t|
       t.string :name
       t.string :plaid_id
-      t.integer :account_type
+      t.string :account_type
       t.integer :account_sub_type
       t.decimal :balance
       t.decimal :limit
