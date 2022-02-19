@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'home#index'
 
+  resources :budgets
+
   namespace :api, defaults: { format: :json } do
     resources :plaid, only: [] do
       post 'link_token', on: :collection
