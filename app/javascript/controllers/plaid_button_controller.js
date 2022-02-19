@@ -25,7 +25,11 @@ export default class extends Controller {
           // The metadata object contains info about the institution the
           // user selected and the account ID or IDs, if the
           // Account Select view is enabled.
-          post('/api/plaid/access_token', { public_token, metadata })
+          post('/api/plaid/access_token', {
+            budget_id: this.element.dataset.budgetId,
+            public_token,
+            metadata,
+          })
         },
         onExit: function (err, metadata) {
           // The user exited the Link flow.
@@ -48,7 +52,7 @@ export default class extends Controller {
           //   timestamp:       "2017-09-14T14:42:19.350Z",
           //   view_name:       "MFA",
           // }
-          console.lot(eventName, metadata)
+          console.log(eventName, metadata)
         },
       }).open()
       this.element.disabled = false
