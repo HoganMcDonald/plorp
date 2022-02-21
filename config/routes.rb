@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'home#index'
 
-  resources :budgets, only: %i[show new edit create update destroy]
+  resources :budgets, only: %i[show new edit create update destroy] do
+    resources :spending_plans, only: %i[create update new edit]
+  end
 
   namespace :api, defaults: { format: :json } do
     resources :plaid, only: [] do
