@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_20_003130) do
+ActiveRecord::Schema.define(version: 2022_02_21_160219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,20 @@ ActiveRecord::Schema.define(version: 2022_02_20_003130) do
     t.index ["budget_id"], name: "index_spending_plans_on_budget_id"
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.decimal "amount"
+    t.string "category"
+    t.datetime "authorized_date", precision: 6
+    t.datetime "date", precision: 6
+    t.string "transaction_id"
+    t.string "merchant"
+    t.string "city"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_transactions_on_account_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -76,4 +90,5 @@ ActiveRecord::Schema.define(version: 2022_02_20_003130) do
   add_foreign_key "authorizations", "budgets"
   add_foreign_key "spending_plans", "accounts"
   add_foreign_key "spending_plans", "budgets"
+  add_foreign_key "transactions", "accounts"
 end
